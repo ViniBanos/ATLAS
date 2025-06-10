@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2nvbeu5ucwmv"]
+
+[ext_resource type="Script" uid="uid://fgexjd8ihan5" path="res://player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dsx6wei6of50u" path="res://assets/sprites/steave-sprite-sheet.png" id="2_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(27, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 60, 58, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(60, 60, 58, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(120, 60, 58, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(180, 60, 58, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(36, -5)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-35.5, 5.5)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-37, 15)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+autoplay = "default"
+frame_progress = 0.75542
